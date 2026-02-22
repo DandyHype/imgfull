@@ -19,29 +19,33 @@
     width: 100vw;
     height: 100vh;
     object-fit: cover;
+    z-index: 0;
   }
 
   #enter {
     position: fixed;
     inset: 0;
-    background: black;
+    background: rgba(0,0,0,0.6);
     color: white;
     font-size: 24px;
     border: none;
     cursor: pointer;
+    z-index: 10; /* ABOVE image */
   }
 </style>
 </head>
 <body>
 
-<button id="enter">Click to Enter Fullscreen</button>
+<button id="enter">Click anywhere to enter fullscreen</button>
 <img src="image.jpeg" alt="">
 
 <script>
 const btn = document.getElementById('enter');
 
-btn.onclick = () => {
-  document.documentElement.requestFullscreen();
+btn.onclick = async () => {
+  try {
+    await document.documentElement.requestFullscreen();
+  } catch (e) {}
   btn.style.display = "none";
 };
 </script>
