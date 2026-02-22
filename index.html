@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fullscreen Image</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: black;
+  }
+
+  img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  #enter {
+    position: fixed;
+    inset: 0;
+    background: black;
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<button id="enter">Click to Enter Fullscreen</button>
+<img src="image.jpeg" alt="">
+
+<script>
+const btn = document.getElementById('enter');
+
+btn.onclick = () => {
+  document.documentElement.requestFullscreen();
+  btn.style.display = "none";
+};
+</script>
+
+</body>
+</html>
